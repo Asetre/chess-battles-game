@@ -7,18 +7,20 @@ const port = 8080
 //Game sockets
 require('./game')(io)
 
-var serv
+var serv = null
 
 function startServer() {
-   serv = Server.listen(port, () => {
-    console.log(`Game Socket Server listening on port: ${port}`)
-  })
+    serv = Server.listen(port, () => {
+        //eslint-disable-next-line
+        console.log(`Game Socket Server listening on port: ${port}`)
+    })
 }
 
+//eslint-disable-next-line
 function closeServer() {
-  serv.close()
+    serv.close()
 }
 
 if(require.main === module) {
-  startServer()
+    startServer()
 }
